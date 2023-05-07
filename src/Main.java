@@ -26,10 +26,12 @@ public class Main {
     }
 
     public static void task3() {
-        int deliveryDistance = 19;
+        int deliveryDistance = 101;
+        int daysForDelivery = calculateTimeForDelivery(deliveryDistance);
 
         System.out.println("Task3:");
-        calculateAndPrintTimeForDelivery(deliveryDistance);
+        if(daysForDelivery > 0) System.out.println("Потребуется дней: " + daysForDelivery);
+        else System.out.println("Доставки нет");
     }
 
     public static boolean checkLeapYear(int year){
@@ -45,10 +47,10 @@ public class Main {
         else System.out.println("Установите версию приложения для Android по ссылке");
     }
 
-    public static void calculateAndPrintTimeForDelivery(int distance){
-        if(distance < 20) System.out.println("Потребуется 1 день");
-        else if(distance < 60) System.out.println("Потребуется 2 дня");
-        else if(distance <= 100) System.out.println("Потребуется 3 дня");
-        else System.out.println("Доставки нет(");
+    public static int calculateTimeForDelivery(int distance){
+        if(distance < 20) return 1;
+        else if(distance < 60) return 2;
+        else if(distance <= 100) return 3;
+        else return -1;
     }
 }
